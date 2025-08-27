@@ -8,7 +8,7 @@ interface NavLinkProps {
 
 export default function NavLink({ href, children, className }: NavLinkProps) {
   return (
-    <Link href={href} className={`text-blue-500 hover:underline ${className}`}>
+    <Link href={href} className={`${className}`}>
       {children}
     </Link>
   );

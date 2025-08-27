@@ -3,8 +3,14 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavLink from "@/components/NavLink";
 import Image from "next/image";
-import { ThemeProvider } from "next-themes";
-import ThemeToggle from "@/components/ThemeToggle";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import Providers from "./providers";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+
+config.autoAddCss = false;
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({
@@ -30,50 +36,71 @@ export default function RootLayout({
                     bg-white text-gray-900
                     dark:bg-gray-900 dark:text-gray-100`}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <header>
-            <nav className="p-4 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between bg-white dark:bg-gray-800">
-              {/* Left: Logo + nav links */}
-              <div className="flex items-center space-x-8">
-                <NavLink href="/" className="font-bold flex items-center">
+        <Providers>
+          <header className="bg-gray-50 dark:bg-gray-900">
+            <nav className="w-2/3 mx-auto p-4  flex items-center justify-between">
+              {/* Left: Logo + Portfolio */}
+              <div className="flex items-center space-x-3">
+                <NavLink
+                  href="/"
+                  className="flex items-center text-black dark:text-white hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+                >
                   <Image
                     src="/logo.ico"
                     alt="Logo"
-                    width={32}
-                    height={32}
+                    width={80}
+                    height={80}
                     className="mr-2"
                   />
-                  Huy Mai
+                  <span className="text-3xl font-extrabold tracking-tight">
+                    Huy Mai
+                  </span>
                 </NavLink>
-              </div>
-              
-              <div>
-                <ul className="flex space-x-4">
-                  <li>
-                    <NavLink href="/about">About</NavLink>
-                  </li>
-                  <li>
-                    <NavLink href="/skills">Skills</NavLink>
-                  </li>
-                  <li>
-                    <NavLink href="/experiences">Experiences</NavLink>
-                  </li>
-                  <li>
-                    <NavLink href="/projects">Projects</NavLink>
-                  </li>
-                </ul>
               </div>
 
-              {/* Right: GitHub + Theme toggle */}
-              <div className="flex items-center space-x-4">
-                <NavLink
-                  href="https://github.com/hnmai123"
-                  className="font-bold"
-                >
-                  GitHub Profile
-                </NavLink>
-                <ThemeToggle />
-              </div>
+              {/* Center: Nav Links */}
+              <ul className="flex space-x-10 font-bold text-xl">
+                <li>
+                  <NavLink
+                    href="/about"
+                    className="text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  >
+                    About
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    href="/skills"
+                    className="text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  >
+                    Skills
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    href="/experience"
+                    className="text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  >
+                    Experience
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    href="/projects"
+                    className="text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  >
+                    Projects
+                  </NavLink>
+                </li>
+              </ul>
+
+              {/* Right: Github Profile Button */}
+              <NavLink
+                href="https://github.com/hnmai123"
+                className="font-bold text-xl text-black dark:text-white border-2 border-black dark:border-white rounded-full px-6 py-2 transition-colors hover:text-blue-600 hover:border-blue-600 dark:hover:text-blue-400 dark:hover:border-blue-400"
+              >
+                Github Profile
+              </NavLink>
             </nav>
           </header>
 
@@ -81,10 +108,45 @@ export default function RootLayout({
             {children}
           </main>
 
-          <footer className="p-4 text-center text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-900">
-            © 2025 Huy Mai
+          <footer className="p-8 text-center text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-900">
+            <div className="flex justify-center space-x-10 mb-4">
+              <a
+                href="mailto:nhathuylk0123@email.com"
+                aria-label="Mail"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon
+                  icon={faEnvelope}
+                  className="text-4xl font-bold text-black dark:text-white hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+                />
+              </a>
+              <a
+                href="https://github.com/hnmai123"
+                aria-label="GitHub"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon
+                  icon={faGithub}
+                  className="text-4xl font-bold text-black dark:text-white hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+                />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/nhat-huy-mai/"
+                aria-label="LinkedIn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon
+                  icon={faLinkedin}
+                  className="text-4xl font-bold text-black dark:text-white hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+                />
+              </a>
+            </div>
+            <div className="text-lg">© 2025 Huy Mai. All rights reserved.</div>
           </footer>
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );
