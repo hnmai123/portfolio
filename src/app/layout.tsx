@@ -4,7 +4,6 @@ import "./globals.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import Providers from "./providers";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 config.autoAddCss = false;
@@ -34,7 +33,6 @@ export default function RootLayout({
                     dark:bg-gray-900 dark:text-gray-100`}
       >
         <Providers>
-          <Header />
           <main className="flex-1 w-full px-4 sm:px-6 md:px-8 max-w-7xl mx-auto">
             {children}
           </main>

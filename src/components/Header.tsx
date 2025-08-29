@@ -21,7 +21,7 @@ export default function Header() {
               alt="Logo"
               width={40}
               height={40}
-              className="mr-1"
+              className="mx-auto rounded-full shadow-lg mr-2"
               priority
             />
             <span className="text-xl sm:text-2xl font-extrabold tracking-tight">
@@ -34,7 +34,7 @@ export default function Header() {
         <ul className="hidden md:flex items-center gap-8 font-bold text-base lg:text-lg">
           <li>
             <NavLink
-              href="/about"
+              href="#about"
               className="hover:text-blue-600 dark:hover:text-blue-400"
             >
               About
@@ -42,7 +42,7 @@ export default function Header() {
           </li>
           <li>
             <NavLink
-              href="/skills"
+              href="#skills"
               className="hover:text-blue-600 dark:hover:text-blue-400"
             >
               Skills
@@ -50,7 +50,7 @@ export default function Header() {
           </li>
           <li>
             <NavLink
-              href="/experience"
+              href="#experience"
               className="hover:text-blue-600 dark:hover:text-blue-400"
             >
               Experience
@@ -58,7 +58,7 @@ export default function Header() {
           </li>
           <li>
             <NavLink
-              href="/projects"
+              href="#projects"
               className="hover:text-blue-600 dark:hover:text-blue-400"
             >
               Projects
@@ -69,10 +69,10 @@ export default function Header() {
         {/* Right: GitHub (desktop only) + Hamburger (mobile) */}
         <div className="flex items-center gap-2">
           <NavLink
-            href="https://github.com/hnmai123"
+            href="/games"
             className="hidden md:inline-block font-bold border-2 rounded-full px-4 py-1.5 hover:border-blue-600 hover:text-blue-600 dark:hover:border-blue-400 dark:hover:text-blue-400"
           >
-            Github Profile
+            Mini Games
           </NavLink>
 
           {/* Hamburger (mobile only) */}
@@ -112,31 +112,28 @@ export default function Header() {
         <div className="md:hidden border-t border-gray-200 dark:border-gray-800">
           <ul className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex flex-col gap-3 text-lg font-semibold">
             <li>
-              <NavLink href="/about" onClick={() => setOpen(false)}>
+              <NavLink href="#about" onClick={() => setOpen(false)}>
                 About
               </NavLink>
             </li>
             <li>
-              <NavLink href="/skills" onClick={() => setOpen(false)}>
+              <NavLink href="#skills" onClick={() => setOpen(false)}>
                 Skills
               </NavLink>
             </li>
             <li>
-              <NavLink href="/experience" onClick={() => setOpen(false)}>
+              <NavLink href="#experience" onClick={() => setOpen(false)}>
                 Experience
               </NavLink>
             </li>
             <li>
-              <NavLink href="/projects" onClick={() => setOpen(false)}>
+              <NavLink href="#projects" onClick={() => setOpen(false)}>
                 Projects
               </NavLink>
             </li>
             <li>
-              <NavLink
-                href="https://github.com/hnmai123"
-                onClick={() => setOpen(false)}
-              >
-                Github Profile
+              <NavLink href="/games" onClick={() => setOpen(false)}>
+                Mini Games
               </NavLink>
             </li>
           </ul>
